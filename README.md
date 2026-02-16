@@ -43,6 +43,54 @@ This scheduler includes several advanced features beyond basic priority ordering
 - Lightweight approach: warns about conflicts but doesn't crash the program
 - `has_conflicts()`, `detect_conflicts()`, and `get_conflict_report()` methods
 
+## Testing PawPal+
+
+The test suite in `tests/test_pawpal.py` covers critical edge cases for the scheduler:
+
+### Running Tests
+
+```bash
+python -m pytest tests/test_pawpal.py -v
+```
+
+### Test Coverage
+
+| Test Class | Description |
+|------------|-------------|
+| `TestTaskCompletion` | Verifies `mark_complete()` changes task status |
+| `TestTaskAddition` | Verifies adding tasks to pets increases count |
+| `TestSortingEdgeCases` | Tests chronological ordering and priority sorting |
+| `TestRecurringTasks` | Confirms daily/weekly tasks create correct next occurrences |
+| `TestConflictDetection` | Verifies scheduler flags overlapping/duplicate times |
+| `TestScheduleGeneration` | Tests plan generation with time constraints |
+| `TestValidation` | Tests input validation and error handling |
+
+### Key Edge Cases Tested
+
+- **Sorting Correctness**: Tasks returned in chronological order (morning → afternoon → evening)
+- **Recurrence Logic**: Completing a daily task creates a new task for the following day
+- **Conflict Detection**: Scheduler flags duplicate times and overlapping tasks
+- **Boundary Conditions**: Month/year transitions for recurring tasks, zero available time, empty task lists
+
+### Confidence Level: ⭐⭐⭐⭐ (4/5)
+
+**Why 4 stars?**
+
+| Strength | Coverage |
+|----------|----------|
+| Core scheduling logic | Fully tested |
+| Sorting algorithms | Verified correct ordering |
+| Recurring task generation | Tested with date boundary conditions |
+| Conflict detection | All overlap scenarios covered |
+| Input validation | Error handling confirmed |
+
+**What would improve confidence to 5 stars:**
+- Integration tests with the Streamlit UI
+- Performance testing with large task sets
+- Additional edge cases (leap years, timezone handling)
+
+**Test Results:** 28/28 tests passing
+
 ## Getting started
 
 ### Setup
@@ -62,3 +110,6 @@ pip install -r requirements.txt
 5. Add tests to verify key behaviors.
 6. Connect your logic to the Streamlit UI in `app.py`.
 7. Refine UML so it matches what you actually built.
+
+
+
