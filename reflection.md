@@ -7,6 +7,13 @@
 - Briefly describe your initial UML design.
 - What classes did you include, and what responsibilities did you assign to each?
 
+The three core actions a user should be able to perform are:
+- Entering Pet/Owner Information about themselves and their pet (name, pet name, pet species)
+- Adding and Editing Tasks with duration and priority
+- Generate Schedule based on added tasks
+
+
+
 **b. Design changes**
 
 - Did your design change during implementation?
