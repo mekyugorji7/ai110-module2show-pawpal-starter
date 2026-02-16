@@ -128,12 +128,14 @@ Pet owners need a clear, predictable schedule. In pet care, high-priority tasks 
 - How did you use AI tools during this project (for example: design brainstorming, debugging, refactoring)?
 - What kinds of prompts or questions were most helpful?
 
+I used AI during this project to plan, brainstorm, implement, and test my code. The kind of prompts that were most helpful in using this project were ones that questioned my interpretation of the project. Having a second pair of eyes through AI look at my code really helped me find other ways I could implementfeatures I wanted to better.
+
 **b. Judgment and verification**
 
 - Describe one moment where you did not accept an AI suggestion as-is.
 - How did you evaluate or verify what the AI suggested?
 
----
+One moment I did not accept an AI suggestion as-is was when it wanted to throw an exception everytime a user were to add an overlapping task. I realized this was not what the system intended as we need it to inform the user that the task was overlapping but not prevent them from adding them. This shows the importance of understanding what your buidling and why so you as the architect can gauge whether or not the suggestion is in line with the overall plan.
 
 ## 4. Testing and Verification
 
@@ -142,12 +144,14 @@ Pet owners need a clear, predictable schedule. In pet care, high-priority tasks 
 - What behaviors did you test?
 - Why were these tests important?
 
+I tested task completion, task addition, sorting logic, recurring tasks, conflict detection, and schedule generation. All of these tests were important because they verified that the app correctly receives tasks and sorts them based on timing and priority.
+
 **b. Confidence**
 
 - How confident are you that your scheduler works correctly?
 - What edge cases would you test next if you had more time?
 
----
+I gave my confidence a 4/5 as all 28 of my tests passed but there still may be edge cases I still haven't tried out. If I had more time, I would've played around by stress testing the platform with many tasks and playing around with different timing scenarios.
 
 ## 5. Reflection
 
@@ -155,10 +159,16 @@ Pet owners need a clear, predictable schedule. In pet care, high-priority tasks 
 
 - What part of this project are you most satisfied with?
 
+I'm most satisfied with my algorithm. I think it makes alot of sense to use a greedy approach for this project. It works well and ensures that the tasks with high priority are completed first before others.
+
 **b. What you would improve**
 
 - If you had another iteration, what would you improve or redesign?
 
+If I had more time, I'd make more updates to the UI. While Streamlit is nice for quick applications, I'd redo this app with React to polish the UI/UX more.
+
 **c. Key takeaway**
 
 - What is one important thing you learned about designing systems or working with AI on this project?
+
+One important thing I learned about designing systems with AI is that AI can scope out systems well as long as you're patient. Instead of giving it one entire feature to implement, starting from the UML foundation diagrams and working up from there is the most ideal way to go to prevent future issues in the code.
