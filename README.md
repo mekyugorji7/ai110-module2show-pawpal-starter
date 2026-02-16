@@ -22,6 +22,27 @@ Your final app should:
 - Display the plan clearly (and ideally explain the reasoning)
 - Include tests for the most important scheduling behaviors
 
+## Smarter Scheduling
+
+This scheduler includes several advanced features beyond basic priority ordering:
+
+**Sorting & Filtering**
+- `sort_by_priority()` - Orders tasks by importance (1 = highest)
+- `sort_by_time()` - Orders tasks by preferred time slot (morning → afternoon → evening)
+- `filter_by_completion()` - Get completed or incomplete tasks
+- `filter_by_pet()` - Get tasks for a specific pet
+
+**Recurring Tasks**
+- Tasks can have `frequency`: "once", "daily", or "weekly"
+- When a recurring task is completed, a new instance is automatically created
+- Uses `timedelta` to calculate next due date (daily = +1 day, weekly = +7 days)
+
+**Conflict Detection**
+- Tasks can have specific `start_time` values
+- Scheduler detects overlapping tasks (same pet or different pets)
+- Lightweight approach: warns about conflicts but doesn't crash the program
+- `has_conflicts()`, `detect_conflicts()`, and `get_conflict_report()` methods
+
 ## Getting started
 
 ### Setup

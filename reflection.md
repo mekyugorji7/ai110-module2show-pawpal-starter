@@ -93,14 +93,33 @@ classDiagram
 **a. Constraints and priorities**
 
 - What constraints does your scheduler consider (for example: time, priority, preferences)?
+
+The scheduler considers four main constraints:
+
+1. Available Time - The owner's total time budget 
+
+2. Task Priority - Each task has a priority level (1 = highest, 5 = lowest). Higher priority tasks are scheduled first.
+
+3. Task Duration - How long each task takes. The scheduler checks if a task fits before adding it.
+
+4. Time Conflicts - If tasks have specific start times, the scheduler detects overlapping tasks (same pet or different pets) and warns the user.
+
 - How did you decide which constraints mattered most?
+
+Priority was chosen as the primary constraint because in pet care, some tasks are non-negotiable (medications, feeding) while others are flexible like playtime and grooming. A pet owner would rather skip a low-priority task than miss giving their pet medication. Time budgeting is the hard limit—you can't schedule more than you have time for.
 
 **b. Tradeoffs**
 
-- Describe one tradeoff your scheduler makes.
+- Describe one tradeoff your scheduler makes
+
+The scheduler uses a greedy algorithm that adds tasks in priority order until time runs out rather than maximizing the number of tasks. It doesn't backtrack or swap tasks to find the optimal combination that might fit more tasks overall.
+
+For example, if you have 30 minutes available and tasks of [25 min (priority 1), 10 min (priority 2), 10 min (priority 3)], the scheduler picks the 25-min task first, leaving only 5 minutes, wasting potential time.
+
 - Why is that tradeoff reasonable for this scenario?
 
----
+Pet owners need a clear, predictable schedule. In pet care, high-priority tasks (medications, feeding) genuinely need to happen first. Using a greedy approach to skip more low-priority tasks than a priority-1 task is the most reasonable in this scenario.
+
 
 ## 3. AI Collaboration
 
